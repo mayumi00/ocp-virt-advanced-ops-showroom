@@ -2,71 +2,71 @@
 
 [%hardbreaks]
 
-== Introduction
+== はじめに
 
-In today's dynamic IT landscape, organizations are grappling with the complexities of managing traditional virtualization alongside the demands of cloud-native innovation. This workshop allows IT professionals to confidently navigate this hybrid reality, demonstrating how Red Hat OpenShift Virtualization, coupled with Ansible Automation Platform and Red Hat Advanced Cluster Management for Kubernetes provides a unified, efficient, and secure platform for all workloads, whether virtual or container-based.
+今日のダイナミックなIT環境において、組織はクラウドネイティブ・イノベーションの要求と並行して、従来の仮想化管理の複雑さに取り組んでいます。このワークショップでは、Red Hat OpenShift VirtualizationをAnsible Automation PlatformおよびRed Hat Advanced Cluster Management for Kubernetesと組み合わせることで、仮想ベースかコンテナベースかを問わず、あらゆるワークロードに対応する統合型、効率的、かつ安全なプラットフォームを実現する方法を示し、ITプロフェッショナルが自信を持ってこのハイブリッドな現実に対応できるよう支援します。
 
-In this lab, which is a follow-up to our very popular https://www.redhat.com/en/events/na-red-hat-openshift-virtualization[Experience OpenShift Virtualization Roadshow^] lab, we intend to equip you with the knowledge and tools to manage your environment and perform critical operational tasks often required of virtual machine administrators from day-2 onward. This ensures that your virtualized workloads are efficiently managed and maintained long after the initial deployment.
+このラボは、大変好評を博した https://www.redhat.com/en/events/na-red-hat-openshift-virtualization[Experience OpenShift Virtualization Roadshow^] ラボの続編であり、環境を管理し、導入2日目以降に仮想マシン管理者に求められる重要な運用タスクを実行するための知識とツールを提供します。これにより、仮想化されたワークロードは、初期導入後も長期間にわたって効率的に管理・保守されます。
 
-== Lab Story
+== ラボのストーリー
 
-Imagine you are the Lead Platform Engineer or VM administrator at "Legacy Systems Inc.," a company with a strong foundation in traditional virtualized workloads but a growing need to modernize and respond to rapidly evolving market demands. Your CIO recently mandated a strategic shift: consolidate all virtual and containerized workloads onto a unified platform to reduce operational complexity, improve agility, and ensure compliance. This directive was partly driven by recent market changes in the virtualization vendor space, prompting a reassessment of existing investments and strategies. 
-You've chosen Red Hat OpenShift and Red Hat OpenShift Virtualization as your strategic platform for its ability to migrate VMs and unify your workloads on a consistent application platform. Now, your team faces the critical task of mastering Day 2 operations in this new environment.
+あなたは「Legacy Systems Inc.」のリードプラットフォームエンジニア、またはVM管理者だと想像してください。同社は従来型の仮想化ワークロードを基盤としていますが、急速に変化する市場の需要に対応し、モダナイズする必要性が高まっています。CIOは最近、戦略の転換を指示しました。運用の複雑さを軽減し、俊敏性を向上させ、コンプライアンスを確保するため、すべての仮想化ワークロードとコンテナ化ワークロードを統合プラットフォームに統合するというものです。この指示は、仮想化ベンダー市場における最近の市場の変化が一因となり、既存の投資と戦略の見直しが求められています。
+VMを移行し、一貫性のあるアプリケーションプラットフォーム上でワークロードを統合できるという理由から、Red Hat OpenShiftとRed Hat OpenShift Virtualizationを戦略的プラットフォームとして選択しました。今、チームはこの新しい環境におけるDay 2運用を習得するという重要な課題に直面しています。
 
-== Red Hat Products Included 
+== 含まれる Red Hat 製品
 
-*OpenShift Virtualization* enables you to bring virtual machines onto a modern, Kubernetes-based infrastructure. It enables the development and delivery of new applications as well as the modernization of existing ones and can create applications that consist of virtual machines, containers, and serverless functions - all managed together using Kubernetes-native tools and paradigms.
+*OpenShift Virtualization* を使用すると、Kubernetes ベースの最新インフラストラクチャに仮想マシンを導入できます。新規アプリケーションの開発と配信、既存アプリケーションのモダナイゼーションが可能になり、仮想マシン、コンテナ、サーバーレス機能で構成されるアプリケーションを作成できます。これらはすべて、Kubernetes ネイティブのツールとパラダイムを使用して一括管理されます。
 
-*Ansible Automation Platform* allows platform engineering and DevOps teams to create, manage, and scale automation across physical, cloud, virtual, and edge environments. With Ansible Automation Platform, you can drive consistency and manage compliance with automated workflows that span infrastructure, network components, applications, storage, security, ITSM, and more.
+*Ansible Automation Platform* を使用すると、プラットフォームエンジニアリングチームと DevOps チームは、物理、クラウド、仮想、エッジ環境全体にわたって自動化を構築、管理、拡張できます。Ansible Automation Platform を使用すると、インフラストラクチャ、ネットワークコンポーネント、アプリケーション、ストレージ、セキュリティ、ITSM などを網羅する自動化ワークフローによって、一貫性とコンプライアンスを確保できます。
 
-*Red Hat Advanced Cluster Managment for Kubernetes* offers end-to-end management, visibility, and control of your entire fleet from a single console, with operational policies built in. Extend the value of Red Hat OpenShift® by deploying apps, managing multiple clusters, and enforcing policies across multiple clusters deployed to datacenter, cloud, and edge environments.
+*Red Hat Advanced Cluster Managment for Kubernetes* は、運用ポリシーが組み込まれた単一のコンソールから、クラスター全体のエンドツーエンドの管理、可視性、制御を提供します。データセンター、クラウド、エッジ環境にデプロイされたアプリケーションのデプロイ、複数のクラスタの管理、複数のクラスタ全体へのポリシー適用を行うことで、Red Hat OpenShift® の価値をさらに高めます。
 
 
-== Who Will Benefit Most from attending this Lab?
+== このラボへの参加で最もメリットを得られるのは誰ですか？
 
-This workshop is designed for Virtual Machine Administrators, Virtual Infrastructure Administrators, Platform Engineers, and IT Operations teams looking to optimize their virtualization strategy, streamline operations, and prepare for future application modernization.
+このワークショップは、仮想化戦略の最適化、運用の効率化、そして将来のアプリケーションモダナイゼーションへの準備を目指す仮想マシン管理者、仮想インフラストラクチャ管理者、プラットフォームエンジニア、そしてIT運用チームを対象としています。
 
-== What Content is Covered in this Lab?
+== このラボで扱う内容
 
-This lab consists of *five* main sections:
+このラボは、*5つの* 主要セクションで構成されています。
 
-* _Performance, Scalability, and Troubleshooting_: In this section we will take a look at some of the performance metrics on our Red Hat OpenShift Cluster, we will simulate a high load scenario, and we will determine how to troubleshoot and mitigate the issue by scaling our resources appropriately with the tools and resources at our disposal within Red Hat OpenShift, and OpenShift Virtualization.
+* _パフォーマンス、スケーラビリティ、トラブルシューティング_：このセクションでは、Red Hat OpenShift クラスターのパフォーマンスメトリックをいくつか確認し、高負荷シナリオをシミュレートします。そして、Red Hat OpenShift と OpenShift Virtualization で利用可能なツールとリソースを活用してリソースを適切にスケーリングし、問題のトラブルシューティングと軽減を行う方法を検討します。
 
-* _Security and Compliance_: In this section we make use of the Red Hat OpenShift Compliance Operator to ensure that our cluster infrastructure meets the security standards in place at our business. We will also introduce the use of the integrated RBAC controls in Red Hat OpenShift to create additional user accounts and assign them each specific management capabilities within the cluster to assist us with role and duty segregation at our company. 
+* _セキュリティとコンプライアンス_：このセクションでは、Red Hat OpenShift Compliance Operator を使用して、クラスター・インフラストラクチャが社内のセキュリティ基準を満たしていることを確認します。また、Red Hat OpenShift に統合された RBAC 制御を使用して追加のユーザーアカウントを作成し、クラスター内で各アカウントに特定の管理権限を割り当てることで、社内の役割と義務の分離を支援する方法についても紹介します。
 
-* _Advanced Networking and Security_: In this section we will utilize the Network Observability Operator to investigate network utilization and create custom graphs of traffic flows. We will then demonstrate that we can craft specific network policies to help shape and secure our networking traffic both in and out of the cluster, and between projects internally.
+* _高度なネットワークとセキュリティ_：このセクションでは、Network Observability Operator を使用してネットワーク使用率を調査し、トラフィックフローのカスタムグラフを作成します。次に、クラスター内外、そして内部のプロジェクト間のネットワークトラフィックを制御および保護するための、具体的なネットワークポリシーを作成できることを示します。
 
-* _Automation of Virtual Machines_: In this section we cover a variety of daily management tasks that an administrator would be expected to perform in their environment, and demonstrate how many of these tasks can be automated easily with Ansible Automation Platform. 
+* _仮想マシンの自動化_：このセクションでは、管理者が環境内で日常的に実行することが期待されるさまざまな管理タスクを取り上げ、これらのタスクの多くがAnsible Automation Platformで簡単に自動化できることを説明します。
 
-* _Advanced Management of Virtual Workloads_: In this section we will introduce Red Hat Advanced Cluster Managment for Kubernetes, which allows you to discover and manage your many Red Hat OpenShift clusters from a central hub cluster through a single pane of glass interface. We can use RHACM to observe and manage these remote clusters and their workloads whether they be container or virtual machine based.
+* _仮想ワークロードの高度な管理_：このセクションでは、Red Hat Advanced Cluster Managment for Kubernetesを紹介します。これにより、中央のハブクラスターから単一のインターフェースを介して、多数のRed Hat OpenShiftクラスターを検出および管理できます。RHACMを使用すると、コンテナベースでも仮想マシンベースでも、これらのリモートクラスターとそのワークロードを監視および管理できます。
 
-== Requirements for the Lab Environment
+== ラボ環境の要件
 
-* Participant needs to have their own computer with a web browser and internet access.
-* Chromium based browsers are recommended as some copy/paste functions don't work in Firefox for the time being.
-* Remote access console uses the US keyboard layout by default, so it's good to know where special characters reside for other country's layouts, or to use the copy/paste function in a supported browser.
+* 参加者は、Webブラウザとインターネット接続を備えたパソコンをご持参ください。
+* Firefoxでは一部のコピー/ペースト機能が現時点では動作しないため、Chromiumベースのブラウザを推奨します。
+* リモートアクセスコンソールはデフォルトでUSキーボードレイアウトを使用するため、他の国のキーボードレイアウトで特殊文字がどこに配置されているかを把握しておくか、サポートされているブラウザでコピー/ペースト機能を使用することをお勧めします。
 
-=== Credentials for the OpenShift Console and Ansible Automation Platform
+=== OpenShift コンソールおよび Ansible Automation Platform の認証情報
 
-Your OpenShift cluster console is available {openshift_cluster_console_url}[here^].
+OpenShift クラスターコンソールは {openshift_cluster_console_url}[こちら^] からご利用いただけます。
 
-Your login is available with:
+ログインには以下の方法があります。
 
 * *User:* {openshift_cluster_admin_username}
 * *Password:* {openshift_cluster_admin_password}
 
-Your Ansible Automation Platform console is available {aap_controller_web_url}[here^].
+Ansible Automation Platform コンソールは {aap_controller_web_url}[ここ^] からご利用いただけます。
 
 * *User:* {aap_controller_admin_user}
 * *Password* {aap_controller_admin_password}
 
 === Version Information
 
-This edition of the lab has been developed using the following software versions:
+このラボは、以下のソフトウェアバージョンを使用して開発されています。
 
 * Red Hat OpenShift 4.18.23
 * Red Hat OpenShift Virtualization 4.18.13
 * Red Hat Ansible Automation Platform 2.5
 * Red Hat Advanced Cluster Management for Kubernetes 2.14.0
 
-(Accurate as of Sep 18, 2025)
+(2025年9月18日時点の情報です)
