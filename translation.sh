@@ -5,6 +5,6 @@ for NS in `cat tempfile` ; do
     oc scale -n $NS deploy/showroom --replicas=0
     sleep 1
     echo $NS
-    oc patch -n $NS deploy/showroom --patch='{"spec":{"template":{"spec":{"containers": [{"name": "content","env": [{"name": "GIT_REPO_URL", "value": "https://github.com/mayumi00/ocp4-getting-started-showroom"}, {"name": "GIT_REPO_REF", "value": "main"}]}]}}}}'
+    oc patch -n $NS deploy/showroom --patch='{"spec":{"template":{"spec":{"containers": [{"name": "content","env": [{"name": "GIT_REPO_URL", "value": "https://github.com/mayumi00/ocp-virt-advanced-ops-showroom"}, {"name": "GIT_REPO_REF", "value": "main"}]}]}}}}'
     oc scale -n $NS deploy/showroom --replicas=1
 done
