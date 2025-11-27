@@ -4,6 +4,7 @@
 
 私たちの旅は、毎年恒例の「Mega-Sale Monday」という大きな課題から始まります。現在、OpenShift Virtualization 上の VM ベースのサービスに部分的に移行済みの主力 e コマースウェブサイトは、かつてないほどのトラフィックの急増を見込んでいます。昨年は、予期せぬトラフィックの急増によりウェブサイトがクラッシュし、多大な売上損失と顧客の不満につながりました。今年は万全の対策を講じる一方で、昨年のような事態を繰り返さないためには、環境における予期せぬ問題を認識し、対処する必要があります。このモジュールでは、クラスタの高負荷シナリオを特定する方法、垂直方向と水平方向の両方でリソースをスケーリングすることでクラスタの負荷を軽減・修復する方法、そして将来のイベントに備えてクラスタのリソースバランスを調整する方法を学習します。
 
+
 == Red Hat OpenShift コンソールの認証情報
 
 OpenShift クラスターコンソールは {openshift_cluster_console_url}[こちら^] からご利用いただけます。
@@ -18,6 +19,8 @@ image::module-01-perf-scale-ts/00-htpasswd_login.png[title="OpenShift Authentica
 次に、認証情報をコピー/ペーストできるログイン画面が表示されます。
 
 image::module-01-perf-scale-ts/01-openshift_login.png[title="OpenShift Login", link=self, window=blank, width=100%]
+
+NOTE: 本コースでは、Webコンソールのメニューが英語表記となっています。メニューを英語表記にするために次のことを実施してください。Webコンソール画面右上のユーザ名をクリックして [ユーザー設定] のメニューを開きます。次に表示される画面で [言語] メニューを選択すると、「Use the default browser language setting.」のチェックボックスにチェックが入っています。このチェックボックスのチェックを外し、[言語の設定] のドロップダウンリストから、[English] を選択します。最後にブラウザで再読み込みすると、英語のWebコンソールが表示されます。
 
 [[alerts_graphs_logs]]
 == アラート、グラフ、ログの有効化と調査
@@ -198,8 +201,7 @@ image::module-01-perf-scale-ts/31-edit_vm.png[title="Edit VM", link=self, window
 +
 image::module-01-perf-scale-ts/32-update_specs.png[title="Update Specs", link=self, window=blank, width=100%]
 +
-. 
-*Overview* タブに戻ってクリックします。詳細画面のCPU | Memoryセクションが新しい値に更新され、利用可能なリソースが増えたことでゲストのCPU使用率が徐々に急速に低下していることがわかります。
+. *Overview* タブに戻ってクリックします。詳細画面のCPU | Memoryセクションが新しい値に更新され、利用可能なリソースが増えたことでゲストのCPU使用率が徐々に急速に低下していることがわかります。
 +
 [NOTE]
 ====
@@ -274,7 +276,7 @@ NOTE: OpenShift環境では、利用可能なメモリは各ポッドから送�
 +
 image::module-01-perf-scale-ts/42-worker_node_3.png[title="Worker Node 3 Details", link=self, window=blank, width=100%]
 +
-. 上部の *Pods* タブをクリックし、検索バーに「virt-launcher」と入力して、ノード上の VM を検索します。
+. 上部の *Pods* タブをクリックし、検索バーに `virt-launcher` と入力して、ノード上の VM を検索します。
 +
 image::module-01-perf-scale-ts/43-vms_on_node_3.png[title="VMs On Worker Node 3", link=self, window=blank, width=100%]
 +
@@ -292,7 +294,7 @@ image::module-01-perf-scale-ts/46-node_details.png[title="Node Details", link=se
 +
 image::module-01-perf-scale-ts/47-select_taints.png[title="Select Taints", link=self, window=blank, width=100%]
 +
-. *pencil* アイコンをクリックすると、ノードの現在の *Taint* を編集するためのボックスが表示されます。ボックスが表示されたら、Taint定義の横にある *-* をクリックして削除し、*Save* ボタンをクリックします。
+. *鉛筆* アイコンをクリックすると、ノードの現在の *Taint* を編集するためのボックスが表示されます。ボックスが表示されたら、Taint定義の横にある *-* をクリックして削除し、*Save* ボタンをクリックします。
 +
 image::module-01-perf-scale-ts/48-remove_taint.png[title="Remove Taint", link=self, window=blank, width=100%]
 +
